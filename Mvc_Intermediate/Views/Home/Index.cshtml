@@ -1,0 +1,24 @@
+﻿@model string[] 
+@{
+    ViewBag.Title = "Index";
+
+
+
+}
+
+<h2>Kurslar</h2>
+<hr />
+
+
+<ul>
+    @foreach (var kurs in Model)
+    {
+        <li>
+            @kurs
+        </li>
+    }
+
+
+
+</ul>
+
