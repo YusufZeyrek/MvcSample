@@ -30,9 +30,19 @@ namespace Mvc_Intermediate.Controllers
             return View(urun);
         }
 
+        [HttpGet]
         public ActionResult UrunEkle()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult UrunEkle(Urun urun)
+        {
+            var lastId = (Veritabani.Liste.Select(x => x.UrunId)).Max();
+            urun.UrunId = lastId + 1;
+            Veritabani.ElemanEkle(urun);
+            return View("UrunListe", Veritabani.Liste);
         }
 
         public ActionResult Contact()
