@@ -1,24 +1,43 @@
-﻿@model string[] 
+﻿@using Mvc_Intermediate.Models;
+
+@model UrunKategoriModel
 @{
     ViewBag.Title = "Index";
-
-
-
 }
 
 <h2>Kurslar</h2>
 <hr />
+<div class="row">
+    <div class="alert alert-success col-md-12" role="alert">
+        <strong>@Model.UrunSayisi</strong> adet ürün listelendi.
+    </div>
+</div>
 
-
-<ul>
-    @foreach (var kurs in Model)
+    
+    <div class="row">
+    @foreach (var urun in Model.Urunler)
     {
-        <li>
-            @kurs
-        </li>
+        <div class="col-sm-6 col-md-4">
+            <div class="img-thumbnail">
+                 <img src="http://via.placeholder.com/150"/>
+                 <div class="caption-top">
+                      <p>
+                          @if (urun.Aciklama.Length > 50)
+	                      {
+		                        @(urun.Aciklama.Substring(0,47) + "...")
+                          }
+                          else
+                          {
+                              @urun.Aciklama
+                          }
+                      </p>
+                      <p>
+                          @*<a href="/Home/Details/?id=@urun.UrunId" class="btn btn-primary" role="button">Button</a>*@
+
+                          @Html.ActionLink("Ürünü İncele","Details", new { id = @urun.UrunId}, new { @class = "btn btn-primary" })
+                      </p>
+                 </div>
+            </div>
+        </div>
     }
-
-
-
-</ul>
-
+</div>

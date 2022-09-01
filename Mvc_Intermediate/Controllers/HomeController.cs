@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mvc_Intermediate.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,10 +12,32 @@ namespace Mvc_Intermediate.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            UrunKategoriModel model = new UrunKategoriModel();
+            model.Urunler = Veritabani.Liste.Where(i => i.SatistaMi).ToList();
+            model.UrunSayisi = model.Urunler.Count();
 
-            string[] kurslar = { "Mvc Kursu", "web form kursu", "c# kursu" };
+            //ViewBag.UrunSayisi = 
+            //ViewBag.Kategoriler = kategoriler;
 
-            return View(kurslar);
+            return View(model);
+
+        }
+
+        public ActionResult Details(int id)
+        {
+            var urun =Veritabani.Liste.Where(i => i.UrunId == id).FirstOrDefault();
+
+            return View(urun);
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
         }
     }
 }

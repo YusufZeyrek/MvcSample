@@ -24,10 +24,37 @@
                 </ul>
             </div>
         </div>
+        <style>
+            body{
+                margin-top:15px;
+            }
+        </style>
     </div>
 
     <div class="container body-content">
-        @RenderBody()
+        @if (IsSectionDefined("Kategori"))
+        {
+            <div class="row">
+              
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.Action("KategoriMenu", "Kategori")
+                </div>
+                <div class="col-md-9">
+                    @RenderBody()
+                </div>
+            </div>
+        }
+
+       
+       
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
