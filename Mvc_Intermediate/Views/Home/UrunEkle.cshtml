@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "UrunEkle";
+}
+
+<h2>Urun Ekle</h2>
+
+<hr />
+@using (Html.BeginForm("UrunEkle","Home",FormMethod.Post))
+{
+    <div class="form-horizontal">
+
+        <div class="form-group row">
+            <label for="exampleInputEmail1" class="control-label col-md-2 mt-1">Ürün Adı</label>
+            <div class="col-md-10 mt-1">
+                @Html.TextBox("UrunAdi", null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="exampleInputEmail1" class="control-label col-md-2 mt-1">Ürün Açıklama</label>
+            <div class="col-md-10 mt-1">
+                @Html.TextArea("Aciklama", null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="exampleInputEmail1" class="control-label col-md-2 mt-1">Fiyat</label>
+            <div class="col-md-10 mt-1">
+                @Html.TextBox("Fiyat", null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="exampleInputEmail1" class="control-label col-md-2 mt-1">Resim</label>
+            <div class="col-md-10 mt-1">
+                @Html.TextBox("Resim", null, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="exampleInputEmail1" class="control-label col-md-2 mt-1">SatıştaMı</label>
+            <div class="col-md-10 mt-1">
+                Evet: @Html.RadioButton("SatistaMi", true)
+                Hayır: @Html.RadioButton("SatistaMi", true)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <button type="submit" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+
+    </div>
+        
+    
+}
+

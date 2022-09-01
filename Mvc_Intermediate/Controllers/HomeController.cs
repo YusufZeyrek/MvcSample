@@ -30,6 +30,11 @@ namespace Mvc_Intermediate.Controllers
             return View(urun);
         }
 
+        public ActionResult UrunEkle()
+        {
+            return View();
+        }
+
         public ActionResult Contact()
         {
             return View();
